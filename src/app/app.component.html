@@ -9,13 +9,15 @@
 <main class="main">
   <div class="main__container">
     <section class="main__card">
-      <app-get-user (cardFullData)="handleCardFullData($event)"></app-get-user>
+      <!-- <app-get-user (cardFullData)="handleCardFullData($event)"></app-get-user> -->
       <div class="main__cards">
         @if (isSaved) {
           @for (item of cards; track item) {
-            <app-fetch-card [userData]="item"></app-fetch-card>
+            <!-- <app-fetch-card [userData]="item"></app-fetch-card> -->
           }
         }
+            <app-fetch-data></app-fetch-data>
+
       </div>
     </section>
   </div>

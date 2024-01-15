@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
-import { GetUserComponent } from './get-user/get-user.component';
+// import { GetUserComponent } from './get-user/get-user.component';
 import { FetchCardComponent } from './fetch-card/fetch-card.component';
 import { CardComponent } from './card/card.component';
+import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,10 @@ import { CardComponent } from './card/card.component';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    FetchCardComponent,
-    GetUserComponent,
-    CardComponent
+    // FetchCardComponent,
+    // GetUserComponent,
+    // CardComponent,
+    FetchDataComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -28,6 +30,11 @@ export class AppComponent {
   isSaved: boolean = false;
   userNames: any = {};
   cards: any = [];
+
+  ngOnInit(): void {
+    console.log(1)
+
+  }
 
   handleCardFullData(data: any) {
     this.cardData = data;

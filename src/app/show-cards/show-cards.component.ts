@@ -12,14 +12,14 @@ export class ShowCards {
   data: any = [];
  
   ngOnInit(): void {
-    this.getData();
+    // this.getData();
     console.log(this.data);
     
   }
 
-  getData() {
-    Object.keys(localStorage).forEach(key => {
-      this.data.push(localStorage.getItem(key));
-    });
-  }
+  // getData() {
+  //   Object.keys(localStorage).forEach(key => {
+  //     this.data.push(localStorage.getItem(key));
+  //   });
+  // }
 }

@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="header__container">
+    <nav class="header__nav">
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Main</a>
+      <a routerLink="/show-cards" routerLinkActive="active" ariaCurrentWhenActive="page">Show cards</a>
+    </nav>
+  </div>
+</header>
+<main class="main">
+  <div class="main__container">
+    <section class="main__card">
+      <app-get-user (cardFullData)="handleCardFullData($event)"></app-get-user>
+      <div class="main__cards">
+        @if (isSaved) {
+          @for (item of cards; track item) {
+            <app-fetch-card [userData]="item"></app-fetch-card>
+          }
+        }
+      </div>
+    </section>
+  </div>
+</main>
+
+<router-outlet></router-outlet>

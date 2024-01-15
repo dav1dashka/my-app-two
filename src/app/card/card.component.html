@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card__user user-card">
+        <img src="{{data.image}} " alt="User Avatar" class="user-card__avatar">
+        <h2 class="user-card__username">
+            {{data.name.title}}
+            {{data.name.first}}
+            {{data.name.last}}
+        </h2>
+        <span class="user-card__location">
+            {{data.location.city}},
+            {{data.location.country}}
+        </span>
+        <span class="user-card__gender">
+            {{data.gender}}
+        </span>
+        <span class="user-card__email">
+            {{data.email}}
+        </span>
+    </div>
+    <div class="card__weather weather-card">
+        <div class="weather-card__container">
+            <div class="weather-card__cover">
+                <h3 class="weather-card__heading">Current Weather</h3>
+                <div class="weather-card__img-cover">
+                    <img src="{{data.weather.image}}" alt="Weather Icon" class="weather-card__icon">
+                    <span class="weather-card__condition">{{data.weather.description}}</span>
+                </div>
+            </div>
+            <div class="weather-card__cover">
+                <h3 class="weather-card__heading">Current Temperature</h3>
+                <p class="weather-card__temperature">Current: {{data.weather.currentTemp}}{{data.weather.unitTemp}}</p>
+                <p class="weather-card__temperature">Lowest: {{data.weather.lowestTemp}}{{data.weather.unitTemp}}</p>
+                <p class="weather-card__temperature">Highest: {{data.weather.higestTemp}}{{data.weather.unitTemp}}</p>
+            </div>
+        </div>
+    </div>
+</div>

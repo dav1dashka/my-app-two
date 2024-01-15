@@ -24,6 +24,6 @@ export class FetchCardComponent {
     this.userName = this.data.name.first;
     // localStorage.setItem(`${this.userName}Data`, JSON.stringify(this.data));
 
-    this.isSaved = true;
+    // this.isSaved = true;
   }
 }

@@ -22,7 +22,7 @@ export class FetchCardComponent {
 
   saveCard() {
     this.userName = this.data.name.first;
-    localStorage.setItem(`${this.userName}Data`, JSON.stringify(this.data));
+    // localStorage.setItem(`${this.userName}Data`, JSON.stringify(this.data));
 
     this.isSaved = true;
   }

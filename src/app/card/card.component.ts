@@ -8,10 +8,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() userData!: any;
 data: any = {};
 
   ngOnInit(): void {
-    this.data = JSON.parse(this.userData);
+    // this.data = this.userData;
+
+    console.log('12')
+
+    // this.data = JSON.parse(this.userData);
   }
 }

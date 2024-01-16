@@ -1,0 +1,17 @@
+<section class="show">
+    <div class="show__container">
+        <div class="show__cover">
+            <h2 class="show__title">Saved users</h2>
+        </div>
+        <div class="show__cards">
+            @if (isRecived) {
+            123
+
+            @for (item of cardArray; track item.id) {
+            <app-fetch-card [userData]="item" [isSent]="isSent"></app-fetch-card>
+            }
+            }
+
+        </div>
+    </div>
+</section>

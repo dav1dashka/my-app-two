@@ -7,6 +7,8 @@ import { RouterLinkActive } from '@angular/router';
 import { FetchCardComponent } from './fetch-card/fetch-card.component';
 import { CardComponent } from './card/card.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { SaveDataService } from './save-data.service';
+import { ShowFetchCardsComponent } from './show-fetch-cards/show-fetch-cards.component';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +21,15 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     // FetchCardComponent,
     // GetUserComponent,
     // CardComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    ShowFetchCardsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  // constructor(private SaveDataService: SaveDataService) {}
+
   cardData: any = {};
   userName: string = '';
   isSaved: boolean = false;
@@ -33,6 +38,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     console.log(1)
+
 
   }
 

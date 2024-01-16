@@ -12,12 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class FetchCardComponent {
   @Input() userData!: any;
+  @Input() isSent!: any;
+  
   data: any;
   userName: string = '';
   isSaved: boolean = false;
 
   ngOnInit(): void  {
     this.data = this.userData;
+    console.log(this.data)
   }
 
   saveCard() {

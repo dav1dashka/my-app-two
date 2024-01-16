@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardComponent } from '../card/card.component';
-
 @Component({
-  selector: 'app-first',
+  selector: 'app-show-cards',
   standalone: true,
   imports: [CardComponent],
   templateUrl: './show-cards.component.html',
@@ -10,12 +9,24 @@ import { CardComponent } from '../card/card.component';
 })
 export class ShowCards {
   data: any = [];
- 
+
+  @Input() someData: any;
+  @Input() isLoaded: any;
+
+
   ngOnInit(): void {
+    if (this.isLoaded) {
+      console.log(this.someData);
+      console.log(4444);
+
+    }
     // this.getData();
-    console.log(this.data);
-    
+
+    console.log(this.isLoaded);
+
+
   }
+
 
   // getData() {
   //   Object.keys(localStorage).forEach(key => {

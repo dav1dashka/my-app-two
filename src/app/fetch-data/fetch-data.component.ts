@@ -1,16 +1,18 @@
-import { Component, OnInit, Output, inject, EventEmitter } from '@angular/core';
+import { Component, Input, Output, inject, EventEmitter } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SaveDataService } from '../save-data.service';
+import { ShowCards } from '../show-cards/show-cards.component';
 
 @Component({
   selector: 'app-fetch-data',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, ShowCards],
   templateUrl: './fetch-data.component.html',
   styleUrl: './fetch-data.component.sass'
 })
 export class FetchDataComponent {
-  constructor(private dataService: SaveDataService) {}
+  constructor(private SaveDataService: SaveDataService) {}
+
 
   httpClient = inject(HttpClient);
   userData: any = {};
@@ -23,8 +25,9 @@ export class FetchDataComponent {
 
   weatherDataCount: number = 0;
 
-  isLoaded: boolean = false;
+  isLoaded: boolean = true;
   cardData: any = {};
+  someData: any;
 
   ngOnInit(): void {
     this.fetchUserData().then(data => {
@@ -379,6 +382,7 @@ export class FetchDataComponent {
 
   setUserData() {
     this.userData.results.forEach((element: any, key: number) => {
+      // this.cardUserData.push({[`user${key}`]: {}});
       this.cardUserData[`user${key}`] = {};
       this.cardUserData[`user${key}`]['image'] = element.picture.medium;
       this.cardUserData[`user${key}`]['name'] = element.name;
@@ -388,8 +392,8 @@ export class FetchDataComponent {
     });
   }
 
-  setWeatherData(data: any) {
-    data.forEach((element: any, key: number) => {
+  async setWeatherData(data: any)  {
+    await data.forEach((element: any, key: number) => {
       let temperature = element.hourly.temperature_2m;
       let minTemperature = Math.min(...temperature);
       let maxTemperature = Math.max(...temperature);
@@ -405,9 +409,11 @@ export class FetchDataComponent {
       this.cardUserData[`user${key}`]['weather']['higestTemp'] = maxTemperature;
       this.cardUserData[`user${key}`]['weather']['unitTemp'] = element.current_weather_units.temperature;
     });
-
+ 
+    this.isLoaded = true;
+    this.someData = this.cardUserData;
     console.log(this.cardUserData)
-    this.dataService.updateData(this.cardUserData);
+    this.SaveDataService.updateData(this.cardUserData);
   }
 
 

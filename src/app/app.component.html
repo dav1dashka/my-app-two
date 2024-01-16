@@ -10,15 +10,14 @@
   <div class="main__container">
     <section class="main__card">
       <app-show-fetch-cards></app-show-fetch-cards>
-      ShowFetchCardsComponent
+      <app-fetch-data></app-fetch-data>
+
       <!-- <app-get-user (cardFullData)="handleCardFullData($event)"></app-get-user> -->
       <div class="main__cards">
-        @if (isSaved) {
+        <!-- @if (isSaved) {
           @for (item of cards; track item) {
-            <!-- <app-fetch-card [userData]="item"></app-fetch-card> -->
           }
-        }
-            <app-fetch-data></app-fetch-data>
+        } -->
 
       </div>
     </section>

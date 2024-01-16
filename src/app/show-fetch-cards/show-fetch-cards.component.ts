@@ -13,7 +13,6 @@ export class ShowFetchCardsComponent {
   constructor(private SaveDataService: SaveDataService) { }
   datasCards: any = [];
   isRecived: boolean = false;
-  isSent: boolean = false;
   cardArray: any = [];
   card: any;
   
@@ -36,12 +35,7 @@ export class ShowFetchCardsComponent {
 
 
   reloadCards() {
-    this.isSent = true;
-
     this.isRecived = true;
-    console.log(this.cardArray)
-
-
   }
 }
 

@@ -1,12 +1,13 @@
-<!-- <section class="show">
+<section class="show">
     <div class="show__container">
         <div class="show__cover">
             <h2 class="show__title">Saved users</h2>
         </div>
         <div class="show__cards">
-            @for (item of data; track item.id; let idx = $index, e = $even) {
+            @for (item of users; track item.id; let idx = $index, e = $even) {
                 <app-card [userData]="item"></app-card>
               }
         </div>
+        <button title="Get Users" type="button" (click)="getCards()">Get</button>
     </div>
-</section> -->
+</section>

@@ -8,29 +8,21 @@ import { CardComponent } from '../card/card.component';
   styleUrl: './show-cards.component.scss'
 })
 export class ShowCards {
-  data: any = [];
-
-  @Input() someData: any;
-  @Input() isLoaded: any;
-
+  data: any;
+  users: any = [];
+  isLoaded: boolean = false;
 
   ngOnInit(): void {
-    if (this.isLoaded) {
-      console.log(this.someData);
-      console.log(4444);
-
-    }
-    // this.getData();
-
-    console.log(this.isLoaded);
-
-
+    this.getCards();
   }
 
+  getCards() {
+    Object.keys(localStorage).forEach(key => {
+      let data: any = localStorage.getItem(key);
+      this.data = JSON.parse(data)
+      this.users.push(this.data);
+    });
+    console.log(this.users);
+  }
 
-  // getData() {
-  //   Object.keys(localStorage).forEach(key => {
-  //     this.data.push(localStorage.getItem(key));
-  //   });
-  // }
 }

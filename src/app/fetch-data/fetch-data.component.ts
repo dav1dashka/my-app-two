@@ -32,7 +32,6 @@ export class FetchDataComponent {
   ngOnInit(): void {
     this.fetchUserData().then(data => {
       this.userData = data;
-
       this.setUserData();
 
       this.userData.results.forEach((element: any) => {
@@ -44,7 +43,7 @@ export class FetchDataComponent {
           this.cardWeatherData.push(this.weatherData);
           this.weatherDataCount++;
 
-          this.weatherDataCount === 3 ? this.setWeatherData(this.cardWeatherData) : null;
+          this.weatherDataCount === this.userData.results.length ? this.setWeatherData(this.cardWeatherData) : null;
         })
       })
     })
@@ -346,7 +345,7 @@ export class FetchDataComponent {
 
   fetchUserData() {
     return new Promise((resolve, reject) => {
-      fetch('https://randomuser.me/api/?results=9')
+      fetch('https://randomuser.me/api/?results=4')
         .then(response => {
           if (!response.ok) {
             throw new Error(`error status: ${response.status}`);

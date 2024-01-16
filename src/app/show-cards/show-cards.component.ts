@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+
 @Component({
   selector: 'app-show-cards',
   standalone: true,
@@ -8,6 +9,7 @@ import { CardComponent } from '../card/card.component';
   styleUrl: './show-cards.component.scss'
 })
 export class ShowCards {
+
   data: any;
   users: any = [];
   isLoaded: boolean = false;
@@ -22,7 +24,5 @@ export class ShowCards {
       this.data = JSON.parse(data)
       this.users.push(this.data);
     });
-    console.log(this.users);
   }
-
 }

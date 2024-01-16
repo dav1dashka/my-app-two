@@ -14,11 +14,4 @@ export class SaveDataService {
   updateData(data: any) {
     this.dataSubject.next(data);
   }
-
-  private cardDataSubject = new BehaviorSubject<any>(null);
-  cardData$ = this.cardDataSubject.asObservable();
-
-  updateCardData(data: any) {
-    this.cardDataSubject.next(data);
-  }
 }

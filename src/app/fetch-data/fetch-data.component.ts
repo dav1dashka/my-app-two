@@ -382,7 +382,6 @@ export class FetchDataComponent {
 
   setUserData() {
     this.userData.results.forEach((element: any, key: number) => {
-      // this.cardUserData.push({[`user${key}`]: {}});
       this.cardUserData[`user${key}`] = {};
       this.cardUserData[`user${key}`]['image'] = element.picture.medium;
       this.cardUserData[`user${key}`]['name'] = element.name;
@@ -412,76 +411,6 @@ export class FetchDataComponent {
  
     this.isLoaded = true;
     this.someData = this.cardUserData;
-    console.log(this.cardUserData)
     this.SaveDataService.updateData(this.cardUserData);
   }
-
-
 }
-
-
-
-
-
-
-
-
-// export class GetWeatherComponent implements OnInit {
-//   httpClient = inject(HttpClient);
-//   data: any = {};
-//   weatherData: any = {};
-//   temperature: any = [];
-//   minTemperature: number = 0;
-//   maxTemperature: number = 0;
-//   weatherType: any = {};
-//   weatherCode: number = 0;
-//   isDay: string = '';
-//   counter: number = 0;
-
-
-
-//   latitude: number = 0;
-//   longitude: number = 0;
-
-//   ngOnInit(): void {
-//     if (this.IsLoaded) {
-//       this.userData.results.forEach((element: any, key: number) => {
-//         this.latitude = element.location.coordinates.latitude;
-//         this.longitude = element.location.coordinates.longitude;
-
-//         this.fetchData(this.latitude, this.longitude);
-
-//         if (this.counter == key) {
-//           this.isWeatherSent.emit(true);
-//         }
-//       });
-//     }
-//   }
-
-//   fetchData(latitude: number, longitude: number) {
-//     this.httpClient.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m,weather_code&forecast_days=1`)
-//       .subscribe((data) => {
-//         this.data = data;
-
-//         this.temperature = this.data.hourly.temperature_2m;
-//         this.minTemperature = Math.min(...this.temperature);
-//         this.maxTemperature = Math.max(...this.temperature);
-
-//         this.weatherCode = this.data.current_weather.weathercode;
-//         this.weatherType = this.weatherDescriptions[this.weatherCode][this.data.current_weather.is_day === 1 ? 'day' : 'night'];
-
-//         this.setCardWeatherData();
-
-//         this.cardWeatherData.emit(this.weatherData);
-//       })
-//   }
-
-//   setCardWeatherData() {
-//     this.weatherData['image'] = this.weatherType.image;
-//     this.weatherData['description'] = this.weatherType.description;
-//     this.weatherData['currentTemp'] = this.data.current_weather.temperature;
-//     this.weatherData['lowestTemp'] = this.minTemperature;
-//     this.weatherData['higestTemp'] = this.maxTemperature;
-//     this.weatherData['unitTemp'] = this.data.current_weather_units.temperature;
-//   }
-// }

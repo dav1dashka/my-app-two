@@ -33,7 +33,6 @@ export class ShowFetchCardsComponent {
 
   }
 
-
   reloadCards() {
     this.isRecived = true;
   }

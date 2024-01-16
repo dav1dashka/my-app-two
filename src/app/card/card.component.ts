@@ -13,6 +13,5 @@ export class CardComponent {
 
   ngOnInit(): void {
     this.data = this.userData
-    console.log(this.data)
   }
 }

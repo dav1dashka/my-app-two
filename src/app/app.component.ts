@@ -21,25 +21,5 @@ import { ShowFetchCardsComponent } from './show-fetch-cards/show-fetch-cards.com
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  cardData: any = {};
-  userName: string = '';
-  isSaved: boolean = false;
-  userNames: any = {};
-  cards: any = [];
 
-  ngOnInit(): void {
-  }
-
-  handleCardFullData(data: any) {
-    this.cardData = data;
-    this.isSaved = true;
-    this.cards = [];
-
-    if (this.isSaved) {
-      for (let i = 0; i < Object.keys(this.cardData).length; i++) {        
-        this.cards.push(this.cardData[`user${i}`]);
-        this.userName = this.cardData[`user${i}`].name.first;
-      }
-    }
-  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, Output, inject, EventEmitter } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SaveDataService } from '../save-data.service';
 import { ShowCards } from '../show-cards/show-cards.component';
@@ -13,21 +13,19 @@ import { ShowCards } from '../show-cards/show-cards.component';
 export class FetchDataComponent {
   constructor(private SaveDataService: SaveDataService) {}
 
-
   httpClient = inject(HttpClient);
   userData: any = {};
   weatherData: any = {};
   cardUserData: any = [];
   cardWeatherData: any = [];
+  cardData: any = {};
+  
+  weatherDataCount: number = 0;
 
   isFetchedUser: boolean = false;
   isFetchedWeather: boolean = false;
-
-  weatherDataCount: number = 0;
-
   isLoaded: boolean = true;
-  cardData: any = {};
-  someData: any;
+
 
   ngOnInit(): void {
     this.fetchUserData().then(data => {
@@ -409,7 +407,6 @@ export class FetchDataComponent {
     });
  
     this.isLoaded = true;
-    this.someData = this.cardUserData;
     this.SaveDataService.updateData(this.cardUserData);
   }
 }

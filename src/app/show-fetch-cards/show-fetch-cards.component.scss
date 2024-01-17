@@ -1,19 +1,17 @@
 .show {
     margin-top: 1.875rem;
-    &__container {
 
-    }
     &__title {
         display: block;
-        font-size: 30px;
+        font-size: 1.875rem;
         text-align: center;
         color: white;
-        padding: 10px;
-        margin: 0 auto 15px auto;
+        padding: 0.625rem;
+        margin: 0 auto 0.9375rem auto;
         max-width: -moz-fit-content;
         max-width: fit-content;
         background-color: #4CAF50;
-        border-radius: 101px;
+        border-radius: 6.3125rem;
         
     }
     &__cards {

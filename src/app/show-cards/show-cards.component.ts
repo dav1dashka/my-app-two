@@ -9,7 +9,6 @@ import { CardComponent } from '../card/card.component';
   styleUrl: './show-cards.component.scss'
 })
 export class ShowCards {
-
   data: any;
   users: any = [];
   isLoaded: boolean = false;

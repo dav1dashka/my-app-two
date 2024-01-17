@@ -1,11 +1,21 @@
 <section class="show">
     <div class="show__container">
+        @defer {
+        @if (isRecived) {
         <div class="show__cards">
-            @if (isRecived) {
             @for (item of cardArray; track item.id) {
             <app-fetch-card [userData]="item"></app-fetch-card>
             }
+        </div>
+        }
+        } @placeholder (minimum 1000ms) {
+        <div class="show__cards">
+            @for (item of cardArray; track item.id) {
+            <ngx-skeleton-loader appearance="custom-content">
+                <app-skeleton></app-skeleton>
+            </ngx-skeleton-loader>
             }
         </div>
+        }
     </div>
 </section>

@@ -12,9 +12,10 @@
         max-width: fit-content;
         background-color: #4CAF50;
         border-radius: 6.3125rem;
-        
+
     }
-    &__cards {
+
+    &__cards  {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -22,3 +23,4 @@
         gap: 1.25rem;
     }
 }
+

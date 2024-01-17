@@ -1,45 +1,13 @@
 import { Component } from '@angular/core';
 import { SaveDataService } from '../save-data.service';
 import { FetchCardComponent } from '../fetch-card/fetch-card.component';
-
-type Location = {
-  street: any;
-  city: string;
-  state: string;
-  country: string;
-  postcode: string | number;
-  coordinates: any;
-  timezone: any;
-};
-
-type Name = {
-  title: string;
-  first: string;
-  last: string;
-};
-
-type Weather = {
-  image: string;
-  description: string;
-  currentTemp: number;
-  lowestTemp: number;
-  higestTemp: number;
-  unitTemp: string;
-};
-
-type Person = {
-  image: string;
-  name: Name;
-  location: Location;
-  gender: string;
-  email: string;
-  weather: Weather;
-};
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonComponent } from '../skeleton/skeleton.component';
 
 @Component({
   selector: 'app-show-fetch-cards',
   standalone: true,
-  imports: [FetchCardComponent],
+  imports: [FetchCardComponent, NgxSkeletonLoaderModule, SkeletonComponent],
   templateUrl: './show-fetch-cards.component.html',
   styleUrl: './show-fetch-cards.component.scss'
 })
@@ -49,7 +17,7 @@ export class ShowFetchCardsComponent {
   datasCards: any = [];
   isRecived: boolean = false;
   cardArray: any = [];
-
+  skeletonNum: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   ngOnInit(): void {
 
     this.SaveDataService.data$.subscribe((data) => {

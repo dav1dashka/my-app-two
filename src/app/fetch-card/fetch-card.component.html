@@ -31,6 +31,10 @@
         </div>
         <span class="weather-card__label">*Weather displayed for the current date</span>
     </div>
+    <button type="button" (click)="toggleMap()">Toggle Map</button>
+    @if(isMapVisible) {
+        <app-map [secondMessageFromParent]="secondParentMessage" [messageFromParent]="parentMessage"></app-map>
+    }
     <div class="card__cover">
         <button title="Save User" type="button" (click)="saveCard()">{{isSaved ? 'Saved' : 'Save user'}}</button>
     </div>

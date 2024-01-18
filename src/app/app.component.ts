@@ -5,6 +5,8 @@ import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShowFetchCardsComponent } from './show-fetch-cards/show-fetch-cards.component';
+import { MapComponent } from './map/map.component';
+
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,8 @@ import { ShowFetchCardsComponent } from './show-fetch-cards/show-fetch-cards.com
     RouterLink,
     RouterLinkActive,
     FetchDataComponent,
-    ShowFetchCardsComponent
+    ShowFetchCardsComponent,
+    MapComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

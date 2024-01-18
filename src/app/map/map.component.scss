@@ -4,17 +4,28 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width:300px;
+    width: 390px;
     height: 300px;
-    margin: 30px;
-  }
-  
-  .map-frame {
-    border: 2px solid black;
+    margin: 30px auto 20px auto;
+
+    @media (max-width: 500px) {
+        width: 290px;
+    }
+
+    @media (max-width: 380px) {
+        width: 300px;
+        // width: 200px;
+    margin: 0px auto;
+
+    }
+}
+
+.map-frame {
+    border: 1px solid #4CAF50;
     height: 100%;
 
-    & > div {
+    &>div {
         height: 100%;
         width: 100%;
     }
-  }
+}

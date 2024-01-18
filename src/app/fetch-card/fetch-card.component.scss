@@ -21,7 +21,7 @@
     }
 
     &__cover {
-        margin: 0.625rem auto;
+        margin: 0.625rem auto ;
 
         button {
             color: #fff;
@@ -38,6 +38,25 @@
                 box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.356);
                 transform: translateY(0.125rem);
             }
+        }
+    }
+
+    &__button-location {
+        display: block;
+        margin: 10px auto 0 auto;
+        padding: 8px 16px;
+        color: #4CAF50;
+        font-weight: 600;
+        background-color: #ffffff;
+        border-top: 2px solid #4CAF50;
+        border-bottom: 2px solid #4CAF50;
+        border-left: 0px;
+        border-right: 0px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f4f4;
+
         }
     }
 }

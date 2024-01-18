@@ -47,8 +47,8 @@ export class MapComponent implements AfterViewInit {
       minZoom: 8,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
-
-    L.marker([42.3601, -71.0589] as L.LatLngExpression, {
+    console.log(this.longitude)
+    L.marker([this.longitude, this.latitude] as L.LatLngExpression, {
       icon: this.myIcon,
       title: 'hover text'
     }).addTo(this.map).bindPopup('<h1>aaa</h1> <img style="width:50px" src="https://freesvg.org/img/map-pin.png"/>');

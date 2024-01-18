@@ -23,5 +23,6 @@ export class ShowCards {
       this.data = JSON.parse(data)
       this.users.push(this.data);
     });
+    // console.log(this.users)
   }
 }

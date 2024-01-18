@@ -9,10 +9,20 @@ import * as L from 'leaflet';
   styleUrl: './map.component.scss'
 })
 export class MapComponent implements AfterViewInit {
-  private map!: L.Map;
-  private centroid: L.LatLngExpression = [42.3601, -71.0589];
+  longitude: number = 0;
+  latitude: number = 0;
 
-  @Input() messageFromParent: number | undefined;
+  private map!: L.Map;
+
+  @Input() messageFromParent: {
+    id: string,
+    coordinates: {
+      latitude: string,
+      longitude: string
+    },
+    image: string
+  } | undefined;
+
   @Input() secondMessageFromParent: boolean | undefined;
 
   id: string = '';
@@ -28,7 +38,7 @@ export class MapComponent implements AfterViewInit {
 
   initMap(): void {
     this.map = L.map(this.mapName, {
-      center: this.centroid,
+      center: [this.longitude, this.latitude],
       zoom: 12
     });
 
@@ -41,7 +51,8 @@ export class MapComponent implements AfterViewInit {
     L.marker([42.3601, -71.0589] as L.LatLngExpression, {
       icon: this.myIcon,
       title: 'hover text'
-    }).addTo(this.map).bindPopup('<h1>aaa</h1> <img style="width:50px" src="https://freesvg.org/img/map-pin.png"/>')
+    }).addTo(this.map).bindPopup('<h1>aaa</h1> <img style="width:50px" src="https://freesvg.org/img/map-pin.png"/>');
+
     tiles.addTo(this.map);
   }
 
@@ -49,12 +60,14 @@ export class MapComponent implements AfterViewInit {
 
   ngOnInit(): void {
     if (this.secondMessageFromParent) {
-      this.mapName = 'map' + this.messageFromParent!.toString();
+      this.mapName = 'map' + this.messageFromParent!.id;
+      this.longitude = parseFloat(this.messageFromParent!.coordinates.longitude);
+      this.latitude = parseFloat(this.messageFromParent!.coordinates.latitude);
     }
   }
 
   ngAfterViewInit(): void {
-    if (this.mapName.length == 4) {
+    if (this.mapName.length > 4) {
       this.initMap();
     }
   }

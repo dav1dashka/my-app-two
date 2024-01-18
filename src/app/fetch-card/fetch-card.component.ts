@@ -13,10 +13,35 @@ export class FetchCardComponent {
   @Input() userData!: any;
 
   data: any;
+  mapData: {
+    id: string;
+    name: string,
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    image: string;
+  } | undefined;
+
   userName: string = '';
   isSaved: boolean = false;
-  parentMessage: number = 0;
+
+  parentMessage: {
+    id: string;
+    name: string,
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    image: string;
+  } | undefined;
+
   secondParentMessage: boolean = false;
+  
+  coordinates: {
+    latitude: string
+    longitude: string
+  } | undefined;
 
   isMapVisible = false;
 
@@ -26,10 +51,15 @@ export class FetchCardComponent {
 
   ngOnInit(): void {
     this.data = this.userData;
+    this.mapData = {
+      id: this.data.id,
+      name: this.data.name.first,
+      coordinates: this.data.location.coordinates,
+      image: this.data.image
+    }
 
     this.secondParentMessage = true;
-    this.parentMessage = this.data.id;
-    // console.log(this.parentMessage)
+    this.parentMessage = this.mapData;
   }
 
   saveCard() {

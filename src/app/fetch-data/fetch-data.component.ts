@@ -26,7 +26,6 @@ export class FetchDataComponent {
   isFetchedWeather: boolean = false;
   isLoaded: boolean = true;
 
-
   ngOnInit(): void {
     this.fetchUserData().then(data => {
       this.userData = data;
@@ -380,7 +379,7 @@ export class FetchDataComponent {
   setUserData() {
     this.userData.results.forEach((element: any, key: number) => {
       this.cardUserData[`user${key}`] = {};
-      this.cardUserData[`user${key}`]['id'] = key;
+      this.cardUserData[`user${key}`]['id'] = `${element.name.first}${element.name.last}`;
       this.cardUserData[`user${key}`]['image'] = element.picture.medium;
       this.cardUserData[`user${key}`]['name'] = element.name;
       this.cardUserData[`user${key}`]['location'] = element.location;

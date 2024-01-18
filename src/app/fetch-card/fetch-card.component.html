@@ -30,9 +30,8 @@
             </div>
         </div>
         <span class="weather-card__label">*Weather displayed for the current date</span>
-    <button class="card__button-location" type="button" (click)="toggleMap()">View {{data.name.first}} location</button>
-
     </div>
+    <button class="card__button-location" type="button" (click)="toggleMap()">View {{data.name.first}} location</button>
     @if(isMapVisible) {
     <app-map [secondMessageFromParent]="secondParentMessage" [messageFromParent]="parentMessage"></app-map>
     }

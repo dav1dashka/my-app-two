@@ -39,6 +39,24 @@
             }
         }
     }
+
+
+    &__button-location {
+        display: block;
+        margin: 10px auto;
+        padding: 8px 16px;
+        color: #4CAF50;
+        font-weight: 600;
+        background-color: #ffffff;
+        border: 2px solid #4CAF50;
+        border-left: 0px;
+        border-right: 0px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f4f4;
+        }
+    }
 }
 
 .user-card {

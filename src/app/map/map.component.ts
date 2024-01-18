@@ -37,6 +37,9 @@ export class MapComponent implements AfterViewInit {
   });
 
   initMap(): void {
+    console.log(this.longitude)
+    console.log(this.latitude)
+
     this.map = L.map(this.mapName, {
       center: [this.longitude, this.latitude],
       zoom: 12
@@ -47,7 +50,6 @@ export class MapComponent implements AfterViewInit {
       minZoom: 8,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
-    console.log(this.longitude)
     L.marker([this.longitude, this.latitude] as L.LatLngExpression, {
       icon: this.myIcon,
       title: 'hover text'

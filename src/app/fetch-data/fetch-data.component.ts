@@ -26,7 +26,6 @@ export class FetchDataComponent {
   isFetchedWeather: boolean = false;
   isLoaded: boolean = true;
 
-
   ngOnInit(): void {
     this.fetchUserData().then(data => {
       this.userData = data;

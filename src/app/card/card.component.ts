@@ -12,14 +12,48 @@ import { MapComponent } from '../map/map.component';
 export class CardComponent {
   @Input() userData!: any;
   data: any = {};
-  parentMessage: string = '';
+
+  mapData: {
+    id: string;
+    name: string,
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    image: string;
+  } | undefined;
+
+  isSaved: boolean = false;
+  isMapVisible = false;
+
+  parentMessage: {
+    id: string;
+    name: string,
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    image: string;
+  } | undefined;
+
+  secondParentMessage: boolean = false;
+
+  coordinates: {
+    latitude: string
+    longitude: string
+  } | undefined;
 
   ngOnInit(): void {
-    this.data = this.userData
-    // console.log(this.userData)
+    this.data = this.userData;
+    this.mapData = {
+      id: this.data.id,
+      name: this.data.name.first,
+      coordinates: this.data.location.coordinates,
+      image: this.data.image
+    }
+    this.secondParentMessage = true;
+    this.parentMessage = this.mapData;
   }
-
-  isMapVisible = false;
 
   toggleMap() {
     this.isMapVisible = !this.isMapVisible;

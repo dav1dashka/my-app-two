@@ -36,6 +36,6 @@
     </div>
     <button class="card__button-location" type="button" (click)="toggleMap()">View {{data.name.first}} location</button>
     @if(isMapVisible) {
-    <!-- <app-map [messageFromParent]="parentMessage"></app-map> -->
+    <app-map [secondMessageFromParent]="secondParentMessage" [messageFromParent]="parentMessage"></app-map>
     }
 </div>

@@ -15,6 +15,7 @@ export class FetchCardComponent {
   data: any;
   mapData: {
     id: string;
+    name: string,
     coordinates: {
       latitude: string;
       longitude: string;
@@ -27,6 +28,7 @@ export class FetchCardComponent {
 
   parentMessage: {
     id: string;
+    name: string,
     coordinates: {
       latitude: string;
       longitude: string;
@@ -35,6 +37,7 @@ export class FetchCardComponent {
   } | undefined;
 
   secondParentMessage: boolean = false;
+  
   coordinates: {
     latitude: string
     longitude: string
@@ -50,6 +53,7 @@ export class FetchCardComponent {
     this.data = this.userData;
     this.mapData = {
       id: this.data.id,
+      name: this.data.name.first,
       coordinates: this.data.location.coordinates,
       image: this.data.image
     }
